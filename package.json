@@ -1,0 +1,24 @@
+{
+  "name": "tmh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surafelaron/TMH.git"
+  },
+  "author": "surafel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surafelaron/TMH/issues"
+  },
+  "homepage": "https://github.com/surafelaron/TMH#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.0"
+  }
+}
