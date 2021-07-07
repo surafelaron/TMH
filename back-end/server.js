@@ -6,7 +6,8 @@ const morgan = require("morgan");
 const mongoose = require("mongoose")
 // const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
-// const postRoute = require("./routes/posts")
+const usersRoute = require("./routes/users")
+const commentsRoute = require("./routes/comments")
 
 dotenv.config()
 
@@ -22,7 +23,7 @@ app.use(morgan("common"));
 
 
 app.use("/api/auth", authRoute);
-// app.use("/api/users", userRoute);
-// app.use("/api/posts", postRoute);
+app.use("/api/users", usersRoute)
+app.use("/api/comments", commentsRoute);
 
 app.listen(PORT, ()=> console.log(`app listinig on ${PORT}`));
