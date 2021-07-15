@@ -16,12 +16,20 @@ const UserSchema = new mongoose.Schema({
       email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
       bio: String,
       image: String,
-      password: String,
       isAdmin: {default: false},
       password: {
         type: String,
         required: true,
         min: 6,
+      },
+      address: {
+        fullName: { type: String, required: true },
+        address: { type: String, required: true },
+        city: { type: String, required: true },
+        postalCode: { type: String, required: true },
+        country: { type: String, required: true },
+        lat: Number,
+        lng: Number,
       },
     }, {timestamps: true});
     

@@ -1,0 +1,56 @@
+
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.topbarContainer{
+    width: 100%;
+    height: 9rem;
+    background: rgb(19, 21, 22);
+    display: flex;
+    align-items: center;
+    position: sticky;
+}
+
+.logo{
+    width: 12rem;
+    height: 8.5rem;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.logoName{
+    color: rgb(74, 216, 93);
+    padding: 10px;
+    font-weight: bolder;
+    font-size: 25px;
+    position: absolute;
+}
+.topbarLeft{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(252, 252, 253, 0.925);
+}
+
+.topbarCenter{
+    flex: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+}
+
+.topbarRight{
+    padding: 10px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
