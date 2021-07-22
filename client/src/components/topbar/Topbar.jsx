@@ -5,13 +5,13 @@ export default function Topbar() {
     return (
         <div className="topbarContainer">
             <div className="topbarLeft">
-                <span className="logoName">TMH</span>
+                <h1 className="logoName">TMH</h1>
                 <img className="logo" src="assets/dogali.JPEG" alt="logo-dogali bridge" />
 
             </div>
             <div className="topbarRight">
                 <div className="rigtbarLinkHome">
-                    <a href="#home"> Home </a>
+                    <a href="/"> Home </a>
                 </div>
                 <div className="rigtbarLinkAbout">
                     <a href="#about"> About </a>
@@ -20,7 +20,7 @@ export default function Topbar() {
                     <a href="#home"> Contact Us </a>
                 </div>
                 <div className="rigtbarLinkSignIn">
-                    <a href="#register"> Register </a>
+                    <a href="/register"> Become a Member </a>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ export default function Landing() {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${background})`
+        
     }
     return (
         <div>
@@ -15,8 +16,8 @@ export default function Landing() {
                 <div className="landingcenterContainer">
                     <h1 className="landingCenter">Welcome to TMH Home Page</h1>
                     <h2 className="landingCenter2">Become a Member and Help The Cause!!</h2>
+                    <button className="learnMore">Learn More</button>
                 </div>
-
             </div>
         </div>
     )

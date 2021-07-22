@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
     firstName: {
@@ -23,14 +23,17 @@ const UserSchema = new mongoose.Schema({
         min: 6,
       },
       address: {
-        fullName: { type: String, required: true },
-        address: { type: String, required: true },
-        city: { type: String, required: true },
-        postalCode: { type: String, required: true },
-        country: { type: String, required: true },
+        fullName: { type: String},
+        address: { type: String},
+        city: { type: String},
+        postalCode: { type: String },
+        country: { type: String},
         lat: Number,
         lng: Number,
       },
+      discription: {
+        type: String
+      }
     }, {timestamps: true});
     
-module.exports = mongoose.model('User', UserSchema)
+export default mongoose.model('User', UserSchema)
