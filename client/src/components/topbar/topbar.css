@@ -1,66 +1,155 @@
-
-
-
-a{
-    text-decoration: none;
-    color: white;
-}
-
-.topbarContainer{
-    width: 100%;
-    height: 7rem;
-    background: rgb(19, 21, 22);
+/*Desktop View*/
+.header {
+    display: flex;
+    background: linear-gradient(#6616fc, #f394d3);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    height: 8rem;
+  }
+  .logo-nav {
     display: flex;
     align-items: center;
-    position: sticky;
-}
+    justify-content: space-evenly;
+  }
 
-.logo{
+  .topbarLeft{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.2rem;
+      top: 0; left: 0; bottom: 0; right: 0;
+    }
+      
+  .logo{
     width: 10rem;
     height: 6.5rem;
     border-radius: 50%;
-    padding: 5px;
-}
-
-.logoName{
-    position: absolute;
-    font-size: 40px;
-    color: rgb(36, 243, 9);
-    text-align: center;
-    animation: glow 1s ease-in-out infinite alternate
-}
-
-.topbarLeft{
-    flex: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgba(252, 252, 253, 0.925);
-}
-
-.topbarCenter{
-    flex: 9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
-}
-
-.topbarRight{
-    padding: 10px;
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 18px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-@keyframes logoName {
-    from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    padding: 0.5rem;
+   }
+    
+    .logoName{
+        position: absolute;
+        font-size: 3rem;
+        color: rgb(36, 243, 9);
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate
     }
-    to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+
+
+  .nav-options {
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 50px;
+    list-style-type: none;
+  }
+  .mobile-option {
+    display: none;
+  }
+  
+  .option :hover {
+    color: white;
+  }
+  .signin-up {
+    display: flex;
+    padding: 0px 5px;
+    list-style-type: none;
+  }
+  .sign-in {
+    padding-right: 50px;
+    align-self: center;
+  }
+  .sign-in :hover {
+    color: white;
+  }
+  .signup-btn {
+    padding: 10px 10px;
+    height: 2.4rem;
+    border-radius: 3px;
+    background: rgb(222, 9, 241);
+    color: white;
+    cursor: pointer;
+    align-items: center;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  @media (max-width: 648px) {
+    /*Mobile View */
+    .header {
+      padding: 0px 10px;
+    }
+    .topbarLeft{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0; left: 0; bottom: 0; right: 0;
+      }
+        
+    .logo{
+      width: 7rem;
+      height: 6.5rem;
+      border-radius: 50%;
+      padding: 0.5rem;
+     }
+      
+      .logoName{
+          position: absolute;
+          font-size: 1.5rem;
+          color: rgb(36, 243, 9);
+          text-align: center;
+          animation: glow 1s ease-in-out infinite alternate
+      }
+    .nav-options {
+      display: flex;
+      width: 100%;
+      height: 350px;
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      opacity: 0;
+      transition: all 0.5s ease;
+      flex-direction: column;
+      list-style-type: none;
+      grid-gap: 0px;
+    }
+    .nav-options.active {
+      background: #9899d1;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+      align-content: center;
+      padding-left: 0px;
+    }
+  
+    .menu-icon {
+      width: 45px;
+      height: 45px;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 10vw;
+      padding: 30px 0px;
+    }
+    .sign-up {
+      background: rgb(222, 9, 241);
+      border-radius: 3px;
+      color: white;
+      padding: 20px 0px;
+      width: 80%;
+      align-self: center;
+      border-radius: 3px;
+    }
+  
+    .signin-up {
+      display: none;
     }
   }
+  .mobile-menu {
+    display: block;
+  }
+  

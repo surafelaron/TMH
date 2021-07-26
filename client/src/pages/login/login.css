@@ -1,0 +1,62 @@
+body html{
+    width: 100%;
+    height: 100%;
+}
+.signinContainer {
+    background: rgb(19, 61, 61);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    text-decoration: none;
+    z-index: 99%;
+}
+
+.signinForm {
+    width: 50%;
+    height: 60%;
+    margin-top: 3rem;
+    border-radius: 0.2rem;
+    background-color: #f2f2f2;
+    color: rgb(12, 11, 11);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.signinForm input{
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    margin: 0.1rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.form label{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.linkToRegister{
+    text-decoration: none;
+    color: rgb(255, 72, 0);
+}
+
+.primary{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem 0.2rem;
+    /* margin-top: 0.3rem; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+

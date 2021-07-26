@@ -21,15 +21,14 @@
 
 .landingCenter{
     /* background: rgb(2, 102, 151); */
-    color: rgb(14, 11, 235);
-    font-size: 5rem;
-    font-weight: bolder;
+    color: rgb(22, 3, 34);
+    font-size: 4rem;
 }
 
 .landingCenter2{
     margin-top: 15px;
     /* background: rgb(2, 102, 151); */
-    color: rgb(26, 11, 240);
+    color: rgb(22, 3, 34);
     font-size: 3rem;
     font-weight: bolder;
 }

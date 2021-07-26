@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { register } from '../../actions/userActions';
 import LoadingBox from '../../components/LoadingBox';
 import MessageBox from '../../components/MessageBox';
-import Topbar from "../../components/topbar/Topbar";
+import Topbar from "../../components/topbar/Topbar.jsx";
 import "./register.css";
 
 export default function RegisterScreen(props) {
@@ -14,9 +14,9 @@ export default function RegisterScreen(props) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const redirect = props.location.search
-    ? props.location.search.split('=')[1]
-    : '/';
+  // const redirect = props.location.search
+  //   ? props.location.search.split('=')[1]
+  //   : '/';
 
   const userRegister = useSelector((state) => state.userRegister);
   const { userInfo, loading, error } = userRegister;
@@ -30,18 +30,18 @@ export default function RegisterScreen(props) {
       dispatch(register(firsName, lastName, email, password));
     }
   };
-  useEffect(() => {
-    if (userInfo) {
-      props.history.push(redirect);
-    }
-  }, [props.history, redirect, userInfo]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     props.history.push(redirect);
+  //   }
+  // }, [props.history, redirect, userInfo]);
   return (
     <div>
       <Topbar />
       <div className = "register-form-container">
         <form className="form" onSubmit={submitHandler}>
           <div>
-            <h1>Create An Account</h1>
+            <h2>Create An Account</h2>
           </div>
           {loading && <LoadingBox></LoadingBox>}
           {error && <MessageBox variant="danger">{error}</MessageBox>}
@@ -95,8 +95,7 @@ export default function RegisterScreen(props) {
               onChange={(e) => setConfirmPassword(e.target.value)}
             ></input>
           </div>
-          <div>
-            <label />
+          <div className = "buttonDiv">
             <button className="register" type="submit">
               Register
             </button>
@@ -105,7 +104,7 @@ export default function RegisterScreen(props) {
             <label />
             <div>
               Already a member?{' '}
-              <Link className="linkSignin" to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+              <Link className="linkSignin" to="/signin">Log-In</Link>
             </div>
           </div>
         </form>
