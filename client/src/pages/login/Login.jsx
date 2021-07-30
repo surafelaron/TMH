@@ -30,7 +30,6 @@ export default function Login(props) {
     //   }, [props.history, redirect, userInfo]);
     return (
         <div>
-            <Topbar />
             <div className="signinContainer">
                 <form className="signinForm" onSubmit={submitHandler}>
                     <div>

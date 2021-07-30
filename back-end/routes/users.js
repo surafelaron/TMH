@@ -47,39 +47,38 @@ users.post(
   })
 );
 
-users.get(
-  '/:id',
-  expressAsyncHandler(async (req, res) => {
+users.get("/:id", async (req, res) => {
+  try {
     const user = await User.findById(req.params.id);
-    if (user) {
-      res.send(user);
-    } else {
-      res.status(404).send({ message: 'User Not Found' });
+    const { password, ...others } = user._doc;
+    res.status(200).json(others);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+users.put("/:id", async (req, res) => {
+  if (req.body.userId === req.params.id) {
+    if (req.body.password) {
+      const salt = await bcrypt.genSalt(10);
+      req.body.password = await bcrypt.hash(req.body.password, salt);
     }
-  })
-);
-users.put(
-  '/profile',
-  isAuth,
-  expressAsyncHandler(async (req, res) => {
-    const user = await User.findById(req.user._id);
-    if (user) {
-      user.name = req.body.name || user.name;
-      user.email = req.body.email || user.email;
-      if (req.body.password) {
-        user.password = bcrypt.hashSync(req.body.password, 8);
-      }
-      const updatedUser = await user.save();
-      res.send({
-        _id: updatedUser._id,
-        name: updatedUser.name,
-        email: updatedUser.email,
-        isAdmin: updatedUser.isAdmin,
-        token: generateToken(updatedUser),
-      });
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        { new: true }
+      );
+      res.status(200).json(updatedUser);
+    } catch (err) {
+      res.status(500).json(err);
     }
-  })
-);
+  } else {
+    res.status(401).json("You can update only your account!");
+  }
+});
 
 users.get(
   '/',
@@ -111,7 +110,7 @@ users.delete(
 );
 
 users.put(
-  '/:id',
+  '/admin/:id',
   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {

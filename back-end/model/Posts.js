@@ -2,20 +2,26 @@ import mongoose from "mongoose";
 
 const PostSchema = new mongoose.Schema(
   {
-    userId: { 
-      type: mongoose.Schema.Types.ObjectID, 
-      ref: 'User' 
-    },
-    comment: {
+    title: {
       type: String,
-      max: 2000,
+      required: true,
+      unique: true,
     },
-    img: {
+    desc: {
       type: String,
+      required: true,
     },
-    likes: {
+    photo: {
+      type: String,
+      required: false,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    categories: {
       type: Array,
-      default: [],
+      required: false,
     },
   },
   { timestamps: true }
