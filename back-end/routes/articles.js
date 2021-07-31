@@ -1,10 +1,11 @@
 import express from "express";
 import Post from "../model/Posts.js"
+import { isAdmin, isAuth } from '../utils.js';
 
 const articles = express.Router()
 
 //CREATE POST
-articles.post("/", async (req, res) => {
+articles.post("/",isAdmin, async (req, res) => {
   const newPost = new Post(req.body);
   try {
     const savedPost = await newPost.save();
@@ -15,7 +16,7 @@ articles.post("/", async (req, res) => {
 });
 
 //UPDATE POST
-articles.put("/:id", async (req, res) => {
+articles.put("/:id",isAdmin, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.username === req.body.username) {
@@ -40,7 +41,7 @@ articles.put("/:id", async (req, res) => {
 });
 
 //DELETE POST
-articles.delete("/:id", async (req, res) => {
+articles.delete("/:id",isAdmin, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.username === req.body.username) {
