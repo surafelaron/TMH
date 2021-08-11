@@ -8,13 +8,14 @@ import "./topbar.css"
 const Topbar = () => {
     const { user, dispatch } = useContext(Context);
     const PF = "http://localhost:5000/images/"
-
-    const handleLogout = () => {
-        dispatch({ type: "LOGOUT" });
-    };
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+        window.location.replace("/")
+        closeMobileMenu()
+    };
     return (
         <div className="header">
             <Link to="/">
@@ -34,31 +35,30 @@ const Topbar = () => {
                     <li className="option" onClick={closeMobileMenu}>
                         <Link to="/posts">ARTICLES</Link>
                     </li>
-                    <li className="topListItem" onClick={handleLogout}>
-                        {user && "LOGOUT"}
+                    <li className="option" >
+                        {user && <Link onClick={handleLogout}>LOGOUT</Link>}
                     </li>
-                        {user ? (
-                            <>
-                            <Link to ="settings">Settings</Link>
-                            <Link to="/settings">
-                                <img className="topImg" src={PF + user.profilePic} alt="" />
+                    {user ? (
+                        <li className="option">
+                            <Link to="/settings" onClick={closeMobileMenu}>
+                                SETTINGS
                             </Link>
-                            </>
-                        ) : (
-                            <div className="topList">
-                                <li className="topListItem">
-                                    <Link className="link" to="/login">
-                                        LOGIN
-                                    </Link>
-                                </li>
-                                <li className="topListItem">
-                                    <Link className="link" to="/register">
-                                        REGISTER
-                                    </Link>
-                                </li>
-                            </div>
-                        )}
-                    
+                        </li>
+                    ) : (
+                        <div className="topList">
+                            <li className="option">
+                                <Link className="link" to="/login" onClick={closeMobileMenu} >
+                                    LOGIN
+                                </Link>
+                            </li>
+                            <li className="option">
+                                <Link className="link" to="/register" onClick={closeMobileMenu}>
+                                    REGISTER
+                                </Link>
+                            </li>
+                        </div>
+                    )}
+
                 </ul>
 
             </div>

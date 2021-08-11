@@ -1,6 +1,7 @@
 import React from 'react'
 import "./landing.css"
 import background from "../../utils/axum2.png"
+
 export default function Landing() {
 
     const backgroundSyle = {

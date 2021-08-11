@@ -55,7 +55,7 @@ export default function Login() {
                 <div>
                     <label />
                     <div>
-                        New customer?{' '}
+                        New member?{' '}
                         <Link to="/register" className="linkToRegister">
                             Register Here
                         </Link>
